@@ -111,12 +111,25 @@ export default function Home() {
   return (
     <main className="min-h-screen p-10">
       <CommonDataTable tableColumns={columns} data={payments} />
-      <CommonButton
-        disabled={false}
-        content="Click Me"
-        className="common-btn"
-        handleClick={() => alert("test")}
-      />
+      <section className="">
+        <h2 className="my-10 text-center font-bolder text-[24px]">
+          Buttons(Enabled and Disabled)
+        </h2>
+        <div className="flex items-center justify-around">
+          <CommonButton
+            disabled={false}
+            content="Click Me"
+            className="common-btn"
+            handleClick={() => alert("test")}
+          />
+          <CommonButton
+            disabled={true}
+            content="Click Me"
+            className="common-btn"
+            handleClick={() => alert("test")}
+          />
+        </div>
+      </section>
     </main>
   );
 }
