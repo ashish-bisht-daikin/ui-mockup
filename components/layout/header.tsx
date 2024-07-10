@@ -4,7 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Image from "next/image";
 import { KeyRound } from "lucide-react";
 import { images } from "@/app/constants/images";
-import { forwardRef, useState } from "react";
+import { forwardRef, useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import {
   NavigationMenu,
@@ -16,6 +16,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import Link from "next/link";
+import { useTheme } from "next-themes";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -56,6 +57,10 @@ const components: { title: string; href: string; description: string }[] = [
 ];
 const Header = () => {
   const [darkMode, setDarkMode] = useState(false);
+  const { theme, setTheme } = useTheme();
+  useEffect(() => {
+    setTheme(darkMode ? "dark" : "light");
+  }, [darkMode]);
   return (
     <header className="shadow-sm">
       <div className="flex items-center justify-between px-8 py-4">
