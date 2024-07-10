@@ -15,6 +15,7 @@ import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown, MoreHorizontal } from "lucide-react";
 import { payments } from "./constants/data";
 import CommonButton from "@/components/common/common-button";
+import CommonInput from "@/components/common/form/common-input";
 
 const columns: ColumnDef<Payment>[] = [
   {
@@ -111,8 +112,8 @@ export default function Home() {
   return (
     <main className="min-h-screen p-10">
       <CommonDataTable tableColumns={columns} data={payments} />
-      <section className="">
-        <h2 className="my-10 text-center font-bolder text-[24px]">
+      <section className="border-y-2 pt-10 pb-20">
+        <h2 className="my-10 font-bold text-[24px]">
           Buttons(Enabled and Disabled)
         </h2>
         <div className="flex items-center justify-around">
@@ -128,6 +129,12 @@ export default function Home() {
             className="common-btn"
             handleClick={() => alert("test")}
           />
+        </div>
+      </section>
+      <section className="border-y-2 pt-10 pb-20">
+        <h2 className="my-10 font-bold text-[24px]">Form Components</h2>
+        <div className="flex items-center justify-around">
+          <CommonInput placeholder="Enter Name..." />
         </div>
       </section>
     </main>
