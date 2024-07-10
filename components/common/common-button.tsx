@@ -7,6 +7,7 @@ type buttonType = {
   className?: string;
   disabled?: boolean;
   handleClick?: () => void;
+  type?: "button" | "submit" | "reset";
 };
 
 const CommonButton = ({
@@ -14,23 +15,26 @@ const CommonButton = ({
   className,
   disabled,
   handleClick,
+  type,
 }: buttonType) => {
   const emptyFn = () => {};
   const props = {
     className,
     disabled,
     onClick: disabled ? emptyFn : handleClick,
+    type,
   };
   return <button {...props}>{content}</button>;
 };
 
 export default CommonButton;
 
-CommonButton.defaultValues = {
+CommonButton.defaultProps = {
   content: "Click Mew",
-  className: "",
+  className: "common-btn",
   disabled: false,
   handleClick: () => {},
+  type: "button",
 };
 
 CommonButton.propTypes = {
@@ -38,4 +42,5 @@ CommonButton.propTypes = {
   className: PropTypes.string,
   disabled: PropTypes.bool,
   handleClick: PropTypes.func,
+  type: PropTypes.string,
 };
